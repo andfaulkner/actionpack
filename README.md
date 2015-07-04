@@ -4,19 +4,22 @@ Create a bundle of Javascript functions and parameters that can be collected and
 ## Usage
 
 ####Constructor
-var myCommandBundle = actionPack();  //Create a new actionPack object
+```javascript
+var bundleInstance = actionpack();  //Create a new actionPack object
+```
+* each call to actionpack creates a new instance.
 
-####myCommandBundle.addFn(fn, paramOrArrayOfParams, thisArg, isAddFunctionToStart)
+####bundleInstance.addFn(fn, paramOrArrayOfParams, thisArg, isAddFunctionToStart)
 * Add a function to the bundle
 * fn: function to add to the bundle (i.e. the list of functions to call in sequence)
 * parameter to pass to the function when it is called, or an array of parameters if the function takes several arguments
 * thisArg: what object 'this' points to for the function being run
 * isAddFunctionToStart: if true, the added function is placed at the start of the list of functions, and will thus be triggered first (unless another function is added with this parameter equal to true).
 
-####myCommandBundle.wipeAll();
+####bundleInstance.wipeAll();
 * remove all functions from the bundle
 
-####myCommandBundle.fireAll(doRemoveAfterRunning);
+####bundleInstance.fireAll(doRemoveAfterRunning);
 * fire all functions in the bundle, in order.
 * doRemoveAfterRunning: if true, wipe the array clean after running.
 
