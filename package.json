@@ -1,0 +1,33 @@
+{
+  "name": "actionpack",
+  "version": "1.0.0",
+  "description": "Create a bundle of Javascript functions and parameters that can be collected and run in sequence with a single command.",
+  "main": "actionpack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andfaulkner/actionpack.git"
+  },
+  "keywords": [
+    "command",
+    "design-patterns",
+    "design-pattern",
+    "designpattern",
+    "designpatterns",
+    "commandpattern",
+    "command-pattern",
+    "bundle",
+    "function",
+    "utility",
+    "utilities",
+    "collection"
+  ],
+  "author": "Andrew Faulkner <andfaulkner@gmail.com> (https://github.com/andfaulkner)",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/andfaulkner/actionpack/issues"
+  },
+  "homepage": "https://github.com/andfaulkner/actionpack"
+}
