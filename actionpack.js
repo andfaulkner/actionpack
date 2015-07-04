@@ -1,11 +1,11 @@
-var actionPack = function() {
+var actionpack = function() {
     var isArray = function(obj) {
         return (obj && typeof obj === 'object' && obj.constructor == Array) || 
             false;
     }
     return({
         fnArr: [],
-        addFnEnd: function(fn, argArr, thisVal, isAddToStart) {
+        addFn: function(fn, argArr, thisVal, isAddToStart) {
             var len;
             //Add nothing if it didn't receive a function
             if (! (typeof fn === "function")) return false;
