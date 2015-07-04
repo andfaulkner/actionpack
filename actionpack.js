@@ -5,12 +5,17 @@ var actionPack = function() {
     }
     return({
         fnArr: [],
-        addFnEnd: function(fn, argArr, thisVal) {
+        addFnEnd: function(fn, argArr, thisVal, isAddToStart) {
             var len;
             //Add nothing if it didn't receive a function
             if (! (typeof fn === "function")) return false;
-            this.fnArr.push({ func: fn });
-            len = this.fnArr.length - 1;
+            if (!isAddToStart) { 
+                this.fnArr.push({ func: fn });
+                len = this.fnArr.length - 1;
+            } else { 
+                this.fnArr.unshift({ func: fn });
+                len = 0;
+            };
             if (typeof argArr !== "undefined") this.fnArr[len].args = argArr;
             this.fnArr[len].thisVal = thisVal || fn;
             return this.fnArr;
