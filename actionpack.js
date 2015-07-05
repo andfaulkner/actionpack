@@ -4,7 +4,9 @@ var actionpack = function() {
             false;
     }
     return({
+
         fnArr: [],
+
         addFn: function(fn, argArr, thisVal, isAddToStart) {
             var len;
             //Add nothing if it didn't receive a function
@@ -22,20 +24,24 @@ var actionpack = function() {
         },
 
         runAll: function(isKeep) {
+            var retArr = [];
             this.fnArr.forEach(function(fn){
+                var retVal = "";
                 fn.thisVal = fn.thisVal || fn.func;
                 if (!fn.args) {
-                    fn['func'].call(fn.thisVal);
-                } else if (isArray(fn.args)) { 
-                    fn['func'].apply(fn.thisVal, fn.args);
-                    return;
+                    retVal = fn['func'].call(fn.thisVal) || "";
+                } else if (isArray(fn.args)) {
+                    retVal = fn['func'].apply(fn.thisVal, fn.args) || "";
                 } else {
-                    fn['func'].call(fn.thisVal, fn.args);
+                    retVal = fn['func'].call(fn.thisVal, fn.args) || "";
                 }
+                retArr.push(retVal);
                 return;
             });
             if (!isKeep) this.fnArr = [];
+            return retArr;
         },
+
         
         wipeAll: function() {
             this.fnArr = [];
