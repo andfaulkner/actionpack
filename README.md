@@ -26,20 +26,23 @@ var bundleInstance = actionpack();  //Create a new actionPack object
 ```javascript
 var hello = function(yourName) {
     alert("hello " + yourName);
+    return "hellohello";
 };
 var goodbyeToBoth = function(name1, name2) {
     alert("goodbye " + yourName + " and " + name2);
+    return "byebye";
 };
 var seeya = function() {
-    ("See ya!");
+    alert("See ya!");
+    return "bye!";
 };
 
 myCommandBundle.addFn(goodbyeToBoth, ["Coffee", "Kyra"], goodbyeToBoth);
 myCommandBundle.addFn(goodbyeToBoth, ["Meeka", "Callie"], goodbyeToBoth);
 myCommandBundle.addFn(seeya, null, seeya);
 myCommandBundle.addFn(hello, "Meeka", hello, true);
-myCommandBundle.fireAll();
-//--> displays (in order): 1) "hello Meeka"; 2) "goodbye Coffee and Kyra"; 3) "goodbye Meeka and Callie"; 4) "See ya!";
+var returnVals = myCommandBundle.fireAll();
+//--> displays (in order): 1) "hello Meeka"; 2) "goodbye Coffee and Kyra"; 3) "goodbye Meeka and Callie"; 4) "See ya!"; returnVals now equals ["hellohello", "byebye", "bye!"] - the return values are stored in an array.   
 
 myCommandBundle.fireAll(true);
 //--> displays the same as before;
